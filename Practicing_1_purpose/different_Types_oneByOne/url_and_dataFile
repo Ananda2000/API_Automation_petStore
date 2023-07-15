@@ -1,0 +1,4 @@
+===== url ----------->https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html#Example1=========
+
+Example1 --->If the JSON data describes an array, and each element of that array is of a basic type (number, string, boolean, or null):
+Example_2 ---> If the JSON data describes an array, and each element of that array is an object:...
