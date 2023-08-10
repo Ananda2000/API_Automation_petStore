@@ -26,6 +26,7 @@ public class Example_3
 		//System.out.println(mpa1.get("color"));
 		System.out.println(mpa1.get("color"));
 		*/
+		
 		Example_3_pojo e3_obj= objmapp_3.readValue(str_3, Example_3_pojo.class);
 		System.out.println(e3_obj);
 		System.out.println(e3_obj.getColor());
@@ -39,11 +40,11 @@ public class Example_3
 		 String str_4 ="{\r\n" + 
 		 		"\"name\":\"Ananda\"\r\n" + 
 		 		"}";
-		 System.out.println(str_4);
+		  System.out.println(str_4);
 		  str_3 = str_3.concat(json4);
 		  System.out.println("This is after appending the values--------");
 		  System.out.println(str_3);
-		  
-}
+
+	}
 
 }
