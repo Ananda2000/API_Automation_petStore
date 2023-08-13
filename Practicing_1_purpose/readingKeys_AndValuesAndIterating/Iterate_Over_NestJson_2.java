@@ -16,7 +16,7 @@ public class Iterate_Over_NestJson_2
 	public static void main(String [] args) throws IOException
 	{
 		ObjectMapper objmppr = new ObjectMapper();
-		
+		List<String> arlist = new ArrayList<String>();
 		String str2="{\r\n" + 
 				"\"isbn\": \"123-456-222\",  \r\n" + 
 				" \"author\": [\r\n" + 
@@ -41,13 +41,16 @@ public class Iterate_Over_NestJson_2
 		
 		String name ="lastname";
 		JsonNode jsnd = objmppr.readTree(str2);
-		traverse(jsnd, name);
+	List<String> lll=	traverse(jsnd, name,arlist);
 		
+	System.out.println("this is from main method -----"+lll);
+	
+		System.out.println(lll.contains("Ananda"));
 	}
 	
-	public static void traverse(JsonNode root, String name1){
+	public static List<String> traverse(JsonNode root, String name1,List<String> arlist){
 		String fieldName;
-		List<String> arlist = new ArrayList<String>();
+		//List<String> arlist = new ArrayList<String>();
 	    if(root.isObject()){
 	        Iterator<String> fieldNames = root.fieldNames();
 
@@ -62,7 +65,7 @@ public class Iterate_Over_NestJson_2
 	            	arlist.add(fieldValue.asText());
 		            System.out.println("%%%%%%%%%%%%%%%%%%%%%%"+arlist);
 	            }
-	            traverse(fieldValue, name1);
+	            traverse(fieldValue, name1,arlist);
 	        }
 	    } else if(root.isArray()){
 	        ArrayNode arrayNode = (ArrayNode) root;
@@ -72,13 +75,14 @@ public class Iterate_Over_NestJson_2
 	        	System.out.println("this is inside array");
 	            JsonNode arrayElement = arrayNode.get(i);
 	            System.out.println(arrayElement.asText());
-	            traverse(arrayElement,name1);
+	            traverse(arrayElement,name1,arlist);
 	        }
 	    } 
 	    else {
 	    	
 	    }
 	    //System.out.println(arlist.get(0));
+		return arlist;
 	}
 	
 	

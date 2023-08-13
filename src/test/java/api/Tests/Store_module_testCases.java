@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.impl.FailingSerializer;
 
 import api.Endpoints.StoreEndpoint_Methods;
 import api.Payloads.StorePayload;
@@ -24,11 +25,11 @@ import io.restassured.specification.RequestSpecification;
 public class Store_module_testCases 
 {
 	ObjectMapper objmap = new ObjectMapper();
-	//@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void get() throws IOException
 	{
-		
-		Response respss =StoreEndpoint_Methods.Get_method(7);
+		int storeid = 9;
+		Response respss =StoreEndpoint_Methods.Get_method(storeid);
 		System.out.println(respss.getStatusCode());
 		
 		Assert.assertEquals(respss.getStatusCode(), Statuscodes.Response_status_codes_200, "The Status code is not matching...");
@@ -36,7 +37,7 @@ public class Store_module_testCases
 		JsonNode rootnode = objmap.readTree(str);
 		JsonNode jsonid = rootnode.path("id");
 		System.out.println(jsonid.asInt());
-		Assert.assertEquals(7, jsonid.asInt());
+		Assert.assertEquals(storeid, jsonid.asInt());
 		System.out.println(str);
 	/*	RestAssured.baseURI="https://petstore.swagger.io/v2/store/order/3";
 		
@@ -49,7 +50,7 @@ public class Store_module_testCases
 	}
 	
 // THE BELOW METHOD IS USED TO POST THE DATA
-	@Test(priority=1)
+	@Test(priority=1, enabled=false)
 	public void get_postmethod() throws JsonParseException, JsonMappingException, IOException
 	{
 		File file =  new File("JosnFiles/Store_pet.json");
@@ -87,7 +88,7 @@ public class Store_module_testCases
 		
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3, enabled =false)
 	public void Use_Delete_method()
 	{
 		
