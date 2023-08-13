@@ -24,7 +24,7 @@ public class Simple_1
 		String name = node.path("Name").asText();
 		String VillageName = node.path("Village").textValue();
 		String language =node.path("language").asText();
-
+		
 		System.out.println("This is village name --"+name);
 		System.out.println("This is village name --"+VillageName);
 		System.out.println("This is language --"+language);
