@@ -9,11 +9,13 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import api.Payloads.StorePayload;
 //import static io.restassured.RestAssured.given;
+import api.Utils.PropertiesFile;
 
 // THIS CLASS WE ARE USING TO CREATE END POINTS FOR STORE MODULE {CREATE, UPDATE,DELETE AND GET  [CRUD]}
 public class StoreEndpoint_Methods 
 {
 	static Response resp ;
+	
 	
 	// CALLING THE GET METHOD IN 
 	public static Response Get_method(int id)

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.ser.impl.FailingSerializer;
 import api.Endpoints.StoreEndpoint_Methods;
 import api.Payloads.StorePayload;
 import api.ResponseCodes.Statuscodes;
+import api.Utils.PropertiesFile;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -25,10 +27,15 @@ import io.restassured.specification.RequestSpecification;
 public class Store_module_testCases 
 {
 	ObjectMapper objmap = new ObjectMapper();
+	Properties prep;
+	
 	@Test(priority=1,enabled=true)
 	public void get() throws IOException
 	{
-		int storeid = 9;
+		prep= PropertiesFile.readproperites("C:\\Users\\ANANDA K R\\eclipse-workspace\\API_Automation_petStore\\src\\test\\resources\\property.properites");
+		String vallll=prep.getProperty("storeid");
+		int aaaa = Integer.parseInt(vallll);
+		int storeid = aaaa;
 		Response respss =StoreEndpoint_Methods.Get_method(storeid);
 		System.out.println(respss.getStatusCode());
 		
@@ -38,6 +45,11 @@ public class Store_module_testCases
 		JsonNode jsonid = rootnode.path("id");
 		System.out.println(jsonid.asInt());
 		Assert.assertEquals(storeid, jsonid.asInt());
+		
+		
+		JsonNode jsonStatus = rootnode.path("status");
+		Assert.assertEquals("delivered", jsonStatus.asText());
+		
 		System.out.println(str);
 	/*	RestAssured.baseURI="https://petstore.swagger.io/v2/store/order/3";
 		
