@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16" started-at="2023-05-30T03:22:56Z" finished-at="2023-05-30T03:22:56Z">
+  <suite name="Default suite" duration-ms="4031" started-at="2023-08-13T09:14:41Z" finished-at="2023-08-13T09:14:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16" started-at="2023-05-30T03:22:56Z" finished-at="2023-05-30T03:22:56Z">
-      <class name="Automation_practicing.TestNgPRacticing">
-        <test-method status="PASS" signature="before_test()[pri:0, instance:Automation_practicing.TestNgPRacticing@6ea6d14e]" name="before_test" is-config="true" duration-ms="3" started-at="2023-05-30T08:52:56Z" finished-at="2023-05-30T08:52:56Z">
+    <test name="Default test" duration-ms="4031" started-at="2023-08-13T09:14:41Z" finished-at="2023-08-13T09:14:45Z">
+      <class name="api.Tests.Store_module_testCases">
+        <test-method status="PASS" signature="get()[pri:0, instance:api.Tests.Store_module_testCases@7113b13f]" name="get" duration-ms="4013" started-at="2023-08-13T14:44:41Z" finished-at="2023-08-13T14:44:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before_test -->
-        <test-method status="PASS" signature="before_method()[pri:0, instance:Automation_practicing.TestNgPRacticing@6ea6d14e]" name="before_method" is-config="true" duration-ms="0" started-at="2023-05-30T08:52:56Z" finished-at="2023-05-30T08:52:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- before_method -->
-        <test-method status="PASS" signature="this_is_test()[pri:0, instance:Automation_practicing.TestNgPRacticing@6ea6d14e]" name="this_is_test" duration-ms="4" started-at="2023-05-30T08:52:56Z" finished-at="2023-05-30T08:52:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- this_is_test -->
-        <test-method status="PASS" signature="this_is_test1()[pri:0, instance:Automation_practicing.TestNgPRacticing@6ea6d14e]" name="this_is_test1" duration-ms="1" started-at="2023-05-30T08:52:56Z" finished-at="2023-05-30T08:52:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- this_is_test1 -->
-        <test-method status="PASS" signature="before_method()[pri:0, instance:Automation_practicing.TestNgPRacticing@6ea6d14e]" name="before_method" is-config="true" duration-ms="0" started-at="2023-05-30T08:52:56Z" finished-at="2023-05-30T08:52:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- before_method -->
-      </class> <!-- Automation_practicing.TestNgPRacticing -->
+        </test-method> <!-- get -->
+      </class> <!-- api.Tests.Store_module_testCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -5,7 +5,7 @@
     <classes>
       <class name="api.Tests.Store_module_testCases">
         <methods>
-          <include name="get_postmethod"/>
+          <include name="get"/>
         </methods>
       </class> <!-- api.Tests.Store_module_testCases -->
     </classes>
