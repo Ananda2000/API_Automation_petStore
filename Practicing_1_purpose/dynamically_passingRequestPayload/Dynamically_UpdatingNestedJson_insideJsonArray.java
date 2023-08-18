@@ -28,13 +28,9 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 				"    {\r\n" + 
 				"      \"lastname\": \"Doe\",\r\n" + 
 				"      \"firstname\": \"Jane\"\r\n" + 
-				"    },\r\n" + 
-				"	{\r\n" + 
-				"      \"lastname\": \"Ananda\",\r\n" + 
-				"      \"firstname\": \"Reddy\"\r\n" + 
 				"    }\r\n" + 
 				"	]\r\n" + 
-				"	}";
+				"}";
 		
 		System.out.println("--------------PRINTING THE JSON STRING..-----------------------------------");
 		jsnode = objmppr.readTree(str1);
@@ -68,15 +64,15 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 		System.out.println(">>>> WE ARE GOING ITERATE AND INSERTING THE VALUE.. -----------------------------------");
 		
 		
-		traverse(jsnode,age,aa);
+		traverse(jsnode,age,aa,objnd);
 		
 	}
 		
 		//@SuppressWarnings("deprecation")
-		public static void traverse(JsonNode root,String age, int aa)
+		public static void traverse(JsonNode root,String age, int aa,ObjectNode objnd)
 		{
 		   ObjectMapper jsobjnd1 = new ObjectMapper();
-		    ObjectNode objnd = jsobjnd1.createObjectNode();
+		    //ObjectNode objnd = jsobjnd1.createObjectNode();
 		    ObjectNode objnd1 = jsobjnd1.createObjectNode();
 		    objnd1.put("firstname", "aaaa");
 		    objnd1.put("lastname", "jjjj");
@@ -89,36 +85,32 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 		            fieldName = fieldNames.next();
 		            JsonNode fieldValue = root.get(fieldName);
 		            System.out.print(fieldName+"--:");
-		           objnd.put(fieldName, fieldValue.asText());
-		            
-		            traverse(fieldValue,age,aa);
+		            String aaa =fieldValue.asText();
+		           objnd.put(fieldName, aaa);
+		            System.out.println(aaa);
+		            traverse(fieldValue,age,aa,objnd);
 		        }
 		    } else if(root.isArray()){
 		    	arrayNode = (ArrayNode) root;
 		        //lis.add((ArrayNode)objnd1);
 		        arrayNode.add(objnd1);
+		    	
 		       
 		        for(int i = 0; i < arrayNode.size(); i++) 
 		        {
 		            JsonNode arrayElement = arrayNode.get(i);
 		            System.out.println(arrayElement);
-		            
-		            
-		            //traverse(arrayElement,age,aa);
+		            // traverse(arrayElement,age,aa,objnd);
 		        }
-		        //JsonNode arryanod = arrayNode;
-		        //objnd.put(fieldName, arryanod);
+		          objnd.set(fieldName, arrayNode);
 		    } else {
-		        // JsonNode root represents a single value field - do something with it.
-		    	//System.out.println(root.fields());
+		       
 		    	//System.out.println(root.asText());
-		    	
-		    	
-		  
 		}
-		    objnd.put(fieldName, value);
-		    System.out.println("=======================This is objnd ============================");
+			System.out.println("=======================This is objnd ============================");
 		    System.out.println(objnd);
+		   
+		    
 		
 	}
 	
