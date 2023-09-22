@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.omg.CORBA.OBJECT_NOT_EXIST;
+import org.omg.Messaging.SyncScopeHelper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,8 +36,9 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 		System.out.println("--------------PRINTING THE JSON STRING..-----------------------------------");
 		jsnode = objmppr.readTree(str1);
 		System.out.println(jsnode);
+		objnd = objmppr.createObjectNode();
 		
-		objnd = (ObjectNode) jsnode;
+		//objnd = (ObjectNode) jsnode;
 		/*System.out.println("");
 		System.out.println("");
 		System.out.println("--------------PRINTING AFTER UPDATING NEW PROPERTY. -----------------------------------");
@@ -71,6 +73,7 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 		//@SuppressWarnings("deprecation")
 		public static void traverse(JsonNode root,String age, int aa,ObjectNode objnd)
 		{
+			System.out.println("-----&&&&&&"+objnd);
 		   ObjectMapper jsobjnd1 = new ObjectMapper();
 		    //ObjectNode objnd = jsobjnd1.createObjectNode();
 		    ObjectNode objnd1 = jsobjnd1.createObjectNode();
@@ -83,31 +86,44 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 
 		        while(fieldNames.hasNext()) {
 		            fieldName = fieldNames.next();
+		          //  System.out.println(objnd +"This is removeing all");
 		            JsonNode fieldValue = root.get(fieldName);
-		            System.out.print(fieldName+"--:");
 		            String aaa =fieldValue.asText();
+		            System.out.print(fieldName+"--+++++++++++++++++++++++++:"+aaa);
+			          
 		           objnd.put(fieldName, aaa);
+		           
 		            System.out.println(aaa);
 		            traverse(fieldValue,age,aa,objnd);
 		        }
-		    } else if(root.isArray()){
+		    } 
+		    else if(root.isArray())
+		    {
 		    	arrayNode = (ArrayNode) root;
 		        //lis.add((ArrayNode)objnd1);
 		        arrayNode.add(objnd1);
-		    	
+		        //objnd.set(fieldName, arrayNode);
+		        System.out.println("%%%%% arraynode"+arrayNode);
 		       
 		        for(int i = 0; i < arrayNode.size(); i++) 
 		        {
 		            JsonNode arrayElement = arrayNode.get(i);
-		            System.out.println(arrayElement);
-		            // traverse(arrayElement,age,aa,objnd);
+		            System.out.println(">>>"+arrayElement);
+		           // traverse(arrayElement,age,aa,objnd);
 		        }
-		          objnd.set(fieldName, arrayNode);
-		    } else {
+		          //objnd.set(fieldName, arrayNode);
+		        objnd.put(fieldName, "aaa");
+		         // System.out.println("<<<<--"+objnd);
+		        root = arrayNode;
+		        
+		    } 
+		    
+		  /*  else {
 		       
 		    	//System.out.println(root.asText());
-		}
+		}*/
 			System.out.println("=======================This is objnd ============================");
+			//objnd.put(fieldName, arrayNode);
 		    System.out.println(objnd);
 		   
 		    
