@@ -11,7 +11,8 @@ public class StorePayload
 	private String status;
 	private boolean complete;
 
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 	public void setId(int id) {

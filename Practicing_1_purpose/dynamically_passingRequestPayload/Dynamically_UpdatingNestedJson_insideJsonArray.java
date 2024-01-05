@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.omg.CORBA.OBJECT_NOT_EXIST;
+import org.omg.Messaging.SyncScopeHelper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,19 +29,16 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 				"    {\r\n" + 
 				"      \"lastname\": \"Doe\",\r\n" + 
 				"      \"firstname\": \"Jane\"\r\n" + 
-				"    },\r\n" + 
-				"	{\r\n" + 
-				"      \"lastname\": \"Ananda\",\r\n" + 
-				"      \"firstname\": \"Reddy\"\r\n" + 
 				"    }\r\n" + 
 				"	]\r\n" + 
-				"	}";
+				"}";
 		
 		System.out.println("--------------PRINTING THE JSON STRING..-----------------------------------");
 		jsnode = objmppr.readTree(str1);
 		System.out.println(jsnode);
+		objnd = objmppr.createObjectNode();
 		
-		objnd = (ObjectNode) jsnode;
+		//objnd = (ObjectNode) jsnode;
 		/*System.out.println("");
 		System.out.println("");
 		System.out.println("--------------PRINTING AFTER UPDATING NEW PROPERTY. -----------------------------------");
@@ -68,15 +66,16 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 		System.out.println(">>>> WE ARE GOING ITERATE AND INSERTING THE VALUE.. -----------------------------------");
 		
 		
-		traverse(jsnode,age,aa);
+		traverse(jsnode,age,aa,objnd);
 		
 	}
 		
 		//@SuppressWarnings("deprecation")
-		public static void traverse(JsonNode root,String age, int aa)
+		public static void traverse(JsonNode root,String age, int aa,ObjectNode objnd)
 		{
+			System.out.println("-----&&&&&&"+objnd);
 		   ObjectMapper jsobjnd1 = new ObjectMapper();
-		    ObjectNode objnd = jsobjnd1.createObjectNode();
+		    //ObjectNode objnd = jsobjnd1.createObjectNode();
 		    ObjectNode objnd1 = jsobjnd1.createObjectNode();
 		    objnd1.put("firstname", "aaaa");
 		    objnd1.put("lastname", "jjjj");
@@ -87,38 +86,47 @@ public class Dynamically_UpdatingNestedJson_insideJsonArray
 
 		        while(fieldNames.hasNext()) {
 		            fieldName = fieldNames.next();
+		          //  System.out.println(objnd +"This is removeing all");
 		            JsonNode fieldValue = root.get(fieldName);
-		            System.out.print(fieldName+"--:");
-		           objnd.put(fieldName, fieldValue.asText());
-		            
-		            traverse(fieldValue,age,aa);
+		            String aaa =fieldValue.asText();
+		            System.out.print(fieldName+"--+++++++++++++++++++++++++:"+aaa);
+			          
+		           objnd.put(fieldName, aaa);
+		           
+		            System.out.println(aaa);
+		            traverse(fieldValue,age,aa,objnd);
 		        }
-		    } else if(root.isArray()){
+		    } 
+		    else if(root.isArray())
+		    {
 		    	arrayNode = (ArrayNode) root;
 		        //lis.add((ArrayNode)objnd1);
 		        arrayNode.add(objnd1);
+		        //objnd.set(fieldName, arrayNode);
+		        System.out.println("%%%%% arraynode"+arrayNode);
 		       
 		        for(int i = 0; i < arrayNode.size(); i++) 
 		        {
 		            JsonNode arrayElement = arrayNode.get(i);
-		            System.out.println(arrayElement);
-		            
-		            
-		            //traverse(arrayElement,age,aa);
+		            System.out.println(">>>"+arrayElement);
+		           // traverse(arrayElement,age,aa,objnd);
 		        }
-		        //JsonNode arryanod = arrayNode;
-		        //objnd.put(fieldName, arryanod);
-		    } else {
-		        // JsonNode root represents a single value field - do something with it.
-		    	//System.out.println(root.fields());
+		          //objnd.set(fieldName, arrayNode);
+		        objnd.put(fieldName, "aaa");
+		         // System.out.println("<<<<--"+objnd);
+		        root = arrayNode;
+		        
+		    } 
+		    
+		  /*  else {
+		       
 		    	//System.out.println(root.asText());
-		    	
-		    	
-		  
-		}
-		    objnd.put(fieldName, value);
-		    System.out.println("=======================This is objnd ============================");
+		}*/
+			System.out.println("=======================This is objnd ============================");
+			//objnd.put(fieldName, arrayNode);
 		    System.out.println(objnd);
+		   
+		    
 		
 	}
 	
