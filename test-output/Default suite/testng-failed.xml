@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="api.Tests.Store_module_testCases">
+      <class name="dynamic_requestPayload.Using_Dataprovider1_annotation">
         <methods>
-          <include name="get"/>
+          <include name="Dynamic_payloadDisplay" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- api.Tests.Store_module_testCases -->
+      </class> <!-- dynamic_requestPayload.Using_Dataprovider1_annotation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

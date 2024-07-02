@@ -1,13 +1,17 @@
 package medium_complex_objectReading;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ArrayOfObjects 
 {
-	public static void main(String [] args)
+	public static void main(String [] args) throws JsonParseException, JsonMappingException, IOException
 	{
 		ObjectMapper objmpr = new ObjectMapper();
-		String str ="{\r\n" + 
+		String str =" {\r\n" + 
 				"  \"companyName\": \"QAAutomation\",\r\n" + 
 				"  \"companyEmailId\": \"qaautomation@org.com\",\r\n" + 
 				"  \"companyNumber\": \"+353891234121\", \r\n" + 
@@ -58,7 +62,7 @@ public class ArrayOfObjects
 				"      \"firstName\": \"Seema\",\r\n" + 
 				"      \"lastName\": \"Prasad\",\r\n" + 
 				"      \"contractFrom\": \"Jun-2019\",\r\n" + 
-				"      \"contractTo\": \"Jun-2023\"\r\n" + 
+				"      \"contractTo\": \"Jun-2023\",\r\n" + 
 				"      \"contactNumber\" : \"+919688881422\"\r\n" + 
 				"    }\r\n" + 
 				"  ],\r\n" + 
@@ -67,12 +71,15 @@ public class ArrayOfObjects
 				"    \"pfYear\": 2020,\r\n" + 
 				"    \"noOfEmployees\": 100\r\n" + 
 				"  }\r\n" + 
+				"  \r\n" + 
 				"}";
-	
-		
-		
-	
-	
+		ArrayOfObjects_pojo objpojo = new ArrayOfObjects_pojo();
+		objpojo= objmpr.readValue(str, ArrayOfObjects_pojo.class);
+		System.out.println(objpojo.getCompanyPFDeails().getPfName());
+		System.out.println(objpojo.getEmployee().get(0).getAge());
+				
+				
 	}
+
 
 }

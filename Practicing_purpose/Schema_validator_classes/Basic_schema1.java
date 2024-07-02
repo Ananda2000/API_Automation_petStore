@@ -21,8 +21,29 @@ public class Basic_schema1
 				"\"name\":\"nanda\"\r\n" + 
 				"}";
 		
+		/*String str2 ="{\r\n" + 
+				"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r\n" + 
+				"  \"title\": \"Generated schema for Root\",\r\n" + 
+				"  \"type\": \"object\",\r\n" + 
+				"  \"properties\": {\r\n" + 
+				"    \"id\": {\r\n" + 
+				"      \"type\": \"number\"\r\n" + 
+				"    },\r\n" + 
+				"    \"Name\": {\r\n" + 
+				"      \"type\": \"string\"\r\n" + 
+				"    }\r\n" + 
+				"  },\r\n" + 
+				"  \"required\": [\r\n" + 
+				"    \"id\",\r\n" + 
+				"    \"Name\"\r\n" + 
+				"  ]\r\n" + 
+				"}";*/
+		
 			//Assert.assertEquals(str1, JsonSchemaValidator.matchesJsonSchema(new File("C:\\Users\\ANANDA K R\\eclipse-workspace\\API_Automation_petStore\\Schema_validation_jsonFiles\\Basic_schema1.json")));
-		MatcherAssert.assertThat(str1, JsonSchemaValidator.matchesJsonSchema(new File("C:\\Users\\ANANDA K R\\eclipse-workspace\\API_Automation_petStore\\Schema_validation_jsonFiles\\Basic_schema1.json")));
+		MatcherAssert.assertThat(str1, JsonSchemaValidator.matchesJsonSchema(new File("C://Users//ANANDA K R//eclipse-workspace//API_Automation_petStore//Schema_validation_jsonFiles//Basic_schema1.json")));
+		//MatcherAssert.assertThat(str1, JsonSchemaValidator.matchesJsonSchema(str2));
+
+	
 	}
 
 }

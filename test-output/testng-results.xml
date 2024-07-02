@@ -1,56 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3166" started-at="2023-09-13T02:59:18Z" finished-at="2023-09-13T02:59:22Z">
+  <suite name="Default suite" duration-ms="25" started-at="2024-06-11T06:09:22Z" finished-at="2024-06-11T06:09:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3166" started-at="2023-09-13T02:59:18Z" finished-at="2023-09-13T02:59:22Z">
-      <class name="api.Tests.Store_module_testCases">
-        <test-method status="FAIL" signature="get()[pri:0, instance:api.Tests.Store_module_testCases@7113b13f]" name="get" duration-ms="3143" started-at="2023-09-13T08:29:18Z" finished-at="2023-09-13T08:29:22Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [placed] but found [delivered]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [placed] but found [delivered]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:496)
-	at org.testng.Assert.assertEquals(Assert.java:125)
-	at org.testng.Assert.assertEquals(Assert.java:178)
-	at org.testng.Assert.assertEquals(Assert.java:188)
-	at api.Tests.Store_module_testCases.get(Store_module_testCases.java:51)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:663)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:849)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1157)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:771)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1125)
-	at org.testng.TestNG.run(TestNG.java:1033)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+    <test name="Default test" duration-ms="25" started-at="2024-06-11T06:09:22Z" finished-at="2024-06-11T06:09:22Z">
+      <class name="dynamic_requestPayload.Using_Dataprovider1_annotation">
+        <test-method status="PASS" signature="Dynamic_payloadDisplay(java.lang.String)[pri:0, instance:dynamic_requestPayload.Using_Dataprovider1_annotation@4cdbe50f]" name="Dynamic_payloadDisplay" duration-ms="10" started-at="2024-06-11T11:39:22Z" data-provider="anand" finished-at="2024-06-11T11:39:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[233423]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- get -->
-      </class> <!-- api.Tests.Store_module_testCases -->
+        </test-method> <!-- Dynamic_payloadDisplay -->
+        <test-method status="PASS" signature="Dynamic_payloadDisplay(java.lang.String)[pri:0, instance:dynamic_requestPayload.Using_Dataprovider1_annotation@4cdbe50f]" name="Dynamic_payloadDisplay" duration-ms="0" started-at="2024-06-11T11:39:22Z" data-provider="anand" finished-at="2024-06-11T11:39:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[23232]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Dynamic_payloadDisplay -->
+      </class> <!-- dynamic_requestPayload.Using_Dataprovider1_annotation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

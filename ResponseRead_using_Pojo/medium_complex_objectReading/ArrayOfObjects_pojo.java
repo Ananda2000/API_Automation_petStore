@@ -9,8 +9,21 @@ public class ArrayOfObjects_pojo
 	private String companyNumber;
 	private String companyAddress;
 	private List<String> supportedSalaryBanks;
+	private List<ArrayOfObjects_employee> Employee;
+	private List<ArrayOfObjects_contractors> Contractors;
+	private  CompanyPFDeails companyPFDeails;
+	
+	
+	
+
 	public String getCompanyName() {
 		return companyName;
+	}
+	public CompanyPFDeails getCompanyPFDeails() {
+		return companyPFDeails;
+	}
+	public void setCompanyPFDeails(CompanyPFDeails companyPFDeails) {
+		this.companyPFDeails = companyPFDeails;
 	}
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
@@ -51,16 +64,7 @@ public class ArrayOfObjects_pojo
 	public void setContractors(List<ArrayOfObjects_contractors> contractors) {
 		Contractors = contractors;
 	}
-	public List getCompanyPFDeails() {
-		return companyPFDeails;
-	}
-	public void setCompanyPFDeails(List companyPFDeails) {
-		this.companyPFDeails = companyPFDeails;
-	}
-	private List<ArrayOfObjects_employee> Employee;
-	private List<ArrayOfObjects_contractors> Contractors;
-	private List companyPFDeails;
-	
+
 	
 
 }
